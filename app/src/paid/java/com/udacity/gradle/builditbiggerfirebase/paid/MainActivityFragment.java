@@ -2,7 +2,7 @@ package com.udacity.gradle.builditbiggerfirebase.paid;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +15,9 @@ import com.udacity.gradle.builditbiggerfirebase.R;
 
 import builditbigger.android.my.annin.jokeslibrary.JokesActivity;
 
-public class MainActivityFragment extends BaseMainActivityFragment
+
+public class MainActivityFragment
+        extends BaseMainActivityFragment
 {
     //Main Activity Fragment copied from main directory; AdView code removed
     public MainActivityFragment()
@@ -64,22 +66,23 @@ public class MainActivityFragment extends BaseMainActivityFragment
         // Show the loading indicator before running the AsyncTask
         indicator.setVisibility(ProgressBar.VISIBLE);
 
-       // EndpointsAsyncTask myTask = new EndpointsAsyncTask(this);
-       // myTask.execute();
+        // EndpointsAsyncTask myTask = new EndpointsAsyncTask(this);
+        // myTask.execute();
     }
 
-    @Override
-    public void returnJokeData(String result)
-    {
-        // Hide it after it finishes
-        indicator.setVisibility(ProgressBar.INVISIBLE);
+//    @Override
+//    public void returnJokeData(String result)
+//    {
+//        // Hide it after it finishes
+//        indicator.setVisibility(ProgressBar.INVISIBLE);
+//
+//        Intent intent = new Intent(getActivity(), JokesActivity.class);
+//        intent.setAction(Intent.ACTION_SEND);
+//        intent.putExtra(JokesActivity.JOKE_STRING, result);
+//        startActivity(intent);
+//
+//    }
 
-        Intent intent = new Intent(getActivity(), JokesActivity.class);
-        intent.setAction(Intent.ACTION_SEND);
-        intent.putExtra(JokesActivity.JOKE_STRING, result);
-        startActivity(intent);
+}
 
 
-    }
-
-    }
