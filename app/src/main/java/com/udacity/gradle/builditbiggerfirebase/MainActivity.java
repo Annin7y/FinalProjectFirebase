@@ -5,6 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class MainActivity extends AppCompatActivity //implements EndpointsAsyncTaskInterface
 {
@@ -16,6 +22,18 @@ public class MainActivity extends AppCompatActivity //implements EndpointsAsyncT
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference jokesRef = rootRef.child("jokes");
+        Map<String, Object> map = new HashMap<>();
+        map.put("jokeId1","Where did Lucy go after the explosion? Everywhere." );
+        map.put("jokeId2", "What´s the stupidest animal in the jungle? The polar bear.");
+        map.put("jokeId3",  "My grandfather had the heart of lion and a lifetime ban from the New your city zoo.");
+        map.put("jokeId4","What kind of bagel can fly? A plain bagel.");
+//and os on
+       jokesRef.updateChildren(map);
+
+
     }
 
     @Override
