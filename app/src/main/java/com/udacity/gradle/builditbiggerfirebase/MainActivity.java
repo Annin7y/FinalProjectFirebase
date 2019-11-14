@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity //implements EndpointsAsyncT
         map.put("jokeId1","Where did Lucy go after the explosion? Everywhere." );
         map.put("jokeId2", "What´s the stupidest animal in the jungle? The polar bear.");
         map.put("jokeId3",  "My grandfather had the heart of lion and a lifetime ban from the New your city zoo.");
-        map.put("jokeId4","What kind of bagel can fly? A plain bagel.");
+        map.put("jokeId4","Two mice chewing on a film roll. One of them says. I think the book was better." );
+        map.put("jokeId5","What kind of bagel can fly? A plain bagel.");
 //and os on
        jokesRef.updateChildren(map);
 
