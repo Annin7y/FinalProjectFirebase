@@ -218,5 +218,11 @@
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-collection:17.0.0@aar" level="project" />
     <orderEntry type="module" module-name="jokeslibrary" />
     <orderEntry type="module" module-name="jokeslibrary" />
+    <orderEntry type="module" module-name="jokeslibrary" />
+    <orderEntry type="module" module-name="jokeslibrary" />
+    <orderEntry type="module" module-name="jokeslibrary" />
+    <orderEntry type="module" module-name="jokeslibrary" />
+    <orderEntry type="module" module-name="jokeslibrary" />
+    <orderEntry type="module" module-name="jokeslibrary" />
   </component>
 </module>
