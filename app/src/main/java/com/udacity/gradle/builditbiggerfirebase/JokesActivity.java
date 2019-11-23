@@ -14,11 +14,11 @@ public class JokesActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(builditbigger.android.my.annin.jokeslibrary.R.layout.activity_jokes);
+        setContentView(R.layout.activity_jokes);
 
         Intent intent = getIntent();
         String result = intent.getStringExtra(JOKE_STRING);
-        TextView textView = findViewById(builditbigger.android.my.annin.jokeslibrary.R.id.joke_android);
+        TextView textView = findViewById(R.id.joke_android);
         textView.setText(result);
     }
 

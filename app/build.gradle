@@ -85,7 +85,7 @@ android {
         freeImplementation('com.google.android.gms:play-services-ads:17.2.0') {
             exclude group: 'com.android.support', module: 'support-v4'
         }
-        
+
         androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
             exclude group: 'com.android.support', module: 'support-annotations'
         })
