@@ -1,9 +1,10 @@
-package builditbigger.android.my.annin.jokeslibrary;
+package com.udacity.gradle.builditbiggerfirebase;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class JokesActivity extends AppCompatActivity
 {
@@ -13,11 +14,12 @@ public class JokesActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jokes);
+        setContentView(builditbigger.android.my.annin.jokeslibrary.R.layout.activity_jokes);
 
         Intent intent = getIntent();
         String result = intent.getStringExtra(JOKE_STRING);
-        TextView textView = findViewById(R.id.joke_android);
+        TextView textView = findViewById(builditbigger.android.my.annin.jokeslibrary.R.id.joke_android);
         textView.setText(result);
     }
+
 }
