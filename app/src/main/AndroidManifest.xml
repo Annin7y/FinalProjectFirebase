@@ -27,11 +27,11 @@
         </activity>
 
         <activity
-            android:name="com.udacity.gradle.builditbiggerfirebase.JokesActivity"
-            android:parentActivityName="com.udacity.gradle.builditbiggerfirebase.MainActivity">
+            android:name=".JokesActivity"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.udacity.gradle.builditbiggerfirebase.MainActivity" />
+                android:value=".MainActivity" />
         </activity>
 
 

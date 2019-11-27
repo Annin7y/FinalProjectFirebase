@@ -15,13 +15,15 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.udacity.gradle.builditbiggerfirebase.BaseMainActivityFragment;
+import com.udacity.gradle.builditbiggerfirebase.JokesActivity;
 import com.udacity.gradle.builditbiggerfirebase.R;
 
-import builditbigger.android.my.annin.jokeslibrary.JokesActivity;
 
-public class MainActivityFragment extends BaseMainActivityFragment {
+public class MainActivityFragment extends BaseMainActivityFragment
+{
     //Main Activity Fragment copied from main directory
-    public MainActivityFragment() {
+    public MainActivityFragment()
+    {
     }
 
     TextView helloStringFree;

@@ -13,8 +13,6 @@ import android.widget.TextView;
 import com.udacity.gradle.builditbiggerfirebase.BaseMainActivityFragment;
 import com.udacity.gradle.builditbiggerfirebase.R;
 
-import builditbigger.android.my.annin.jokeslibrary.JokesActivity;
-
 
 public class MainActivityFragment
         extends BaseMainActivityFragment

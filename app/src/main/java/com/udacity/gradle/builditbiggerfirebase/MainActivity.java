@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity //implements EndpointsAsyncT
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+ //       Code commented out after saving the data in the Firebase Console
 //        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
 //        DatabaseReference jokesRef = rootRef.child("jokes");
 //        Map<String, Object> map = new HashMap<>();

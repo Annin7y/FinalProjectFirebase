@@ -3,7 +3,6 @@ package com.udacity.gradle.builditbiggerfirebase;
 import android.content.Intent;
 import androidx.fragment.app.Fragment;
 
-import builditbigger.android.my.annin.jokeslibrary.JokesActivity;
 
 public class BaseMainActivityFragment extends Fragment
 {
