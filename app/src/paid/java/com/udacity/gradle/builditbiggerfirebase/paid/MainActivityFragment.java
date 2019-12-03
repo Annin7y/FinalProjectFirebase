@@ -11,6 +11,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.udacity.gradle.builditbiggerfirebase.BaseMainActivityFragment;
+import com.udacity.gradle.builditbiggerfirebase.GetJokesFromFirebase;
+import com.udacity.gradle.builditbiggerfirebase.JokesActivity;
 import com.udacity.gradle.builditbiggerfirebase.R;
 
 
@@ -64,22 +66,23 @@ public class MainActivityFragment
         // Show the loading indicator before running the AsyncTask
         indicator.setVisibility(ProgressBar.VISIBLE);
 
-        // EndpointsAsyncTask myTask = new EndpointsAsyncTask(this);
-        // myTask.execute();
+        GetJokesFromFirebase getJokeFromFirebase = new GetJokesFromFirebase(this);
+        getJokeFromFirebase.getJoke();
+
     }
 
-//    @Override
-//    public void returnJokeData(String result)
-//    {
-//        // Hide it after it finishes
-//        indicator.setVisibility(ProgressBar.INVISIBLE);
-//
-//        Intent intent = new Intent(getActivity(), JokesActivity.class);
-//        intent.setAction(Intent.ACTION_SEND);
-//        intent.putExtra(JokesActivity.JOKE_STRING, result);
-//        startActivity(intent);
-//
-//    }
+    @Override
+    public void returnJokeData(String joke)
+    {
+        // Hide it after it finishes
+        indicator.setVisibility(ProgressBar.INVISIBLE);
+
+        Intent intent = new Intent(getActivity(), JokesActivity.class);
+        intent.setAction(Intent.ACTION_SEND);
+        intent.putExtra(JokesActivity.JOKE_STRING, joke);
+        startActivity(intent);
+
+    }
 
 }
 

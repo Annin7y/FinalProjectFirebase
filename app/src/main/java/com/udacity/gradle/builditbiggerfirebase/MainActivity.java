@@ -12,10 +12,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class MainActivity extends AppCompatActivity //implements EndpointsAsyncTaskInterface
+public class MainActivity extends AppCompatActivity
 {
-    //Code moved to BaseMainActivityFragment after implementing an Interstitial Ad
-   // public static final String JOKE_STRING = "joke_string";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,7 +32,6 @@ public class MainActivity extends AppCompatActivity //implements EndpointsAsyncT
 //        map.put("jokeId5","What kind of bagel can fly? A plain bagel.");
 //and os on
 //       jokesRef.updateChildren(map);
-
 
     }
 
@@ -63,34 +60,5 @@ public class MainActivity extends AppCompatActivity //implements EndpointsAsyncT
         return super.onOptionsItemSelected(item);
     }
 
-//    public void tellJoke(View view)
-//    {
-        // JokesFetch myJokesFetch = new JokesFetch();
-
-        // default code below replaced with the code referencing JokesLibrary
-        // Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
-        // Message commented out after adding JokesActivity class
-        // Toast.makeText(this, myJokesFetch.getRandomJoke(), Toast.LENGTH_SHORT).show();
-
-        // Code structure below is based on the answer given on this site:
-        // https://www.c-sharpcorner.com/article/how-to-send-the-data-one-activity-to-another-activity-in-android-application/
-        // Code commented out after implementing GCE
-//        Intent intent = new Intent(this, JokesActivity.class);
-//        intent.setAction(Intent.ACTION_SEND);
-//        intent.putExtra(JOKE_STRING, myJokesFetch.getRandomJoke());
-//        startActivity(intent);
-
-       // EndpointsAsyncTask myTask = new EndpointsAsyncTask(this);
-       // myTask.execute();
-   // }
-
-//    @Override
-//    public void returnJokeData(String result)
-//    {
-//        Intent intent = new Intent(this, JokesActivity.class);
-//        intent.setAction(Intent.ACTION_SEND);
-//        intent.putExtra(JokesActivity.JOKE_STRING, result);
-//        startActivity(intent);
-//    }
 }
 

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -15,15 +16,14 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.udacity.gradle.builditbiggerfirebase.BaseMainActivityFragment;
+import com.udacity.gradle.builditbiggerfirebase.GetJokesFromFirebase;
 import com.udacity.gradle.builditbiggerfirebase.JokesActivity;
 import com.udacity.gradle.builditbiggerfirebase.R;
 
 
-public class MainActivityFragment extends BaseMainActivityFragment
-{
+public class MainActivityFragment extends BaseMainActivityFragment {
     //Main Activity Fragment copied from main directory
-    public MainActivityFragment()
-    {
+    public MainActivityFragment() {
     }
 
     TextView helloStringFree;
@@ -64,11 +64,9 @@ public class MainActivityFragment extends BaseMainActivityFragment
 
         interstitialAd.loadAd(adRequest);
 
-        interstitialAd.setAdListener(new AdListener()
-        {
+        interstitialAd.setAdListener(new AdListener() {
             @Override
-            public void onAdClosed()
-            {
+            public void onAdClosed() {
                 super.onAdClosed();
                 Intent intent = new Intent(getActivity(), JokesActivity.class);
                 intent.setAction(Intent.ACTION_SEND);
@@ -77,11 +75,9 @@ public class MainActivityFragment extends BaseMainActivityFragment
             }
         });
 
-        jokeButton.setOnClickListener(new View.OnClickListener()
-        {
+        jokeButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 // do something
                 tellJoke();
 
@@ -92,44 +88,29 @@ public class MainActivityFragment extends BaseMainActivityFragment
     }
 
     @Override
-    public void tellJoke()
-    {
-        // JokesFetch myJokesFetch = new JokesFetch();
-
-        // default code below replaced with the code referencing JokesLibrary
-        // Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
-        // Message commented out after adding JokesActivity class
-        // Toast.makeText(this, myJokesFetch.getRandomJoke(), Toast.LENGTH_SHORT).show();
-
-        // Code structure below is based on the answer given on this site:
-        // https://www.c-sharpcorner.com/article/how-to-send-the-data-one-activity-to-another-activity-in-android-application/
-        // Code commented out after implementing GCE
-//        Intent intent = new Intent(this, JokesActivity.class);
-//        intent.setAction(Intent.ACTION_SEND);
-//        intent.putExtra(JOKE_STRING, myJokesFetch.getRandomJoke());
-//        startActivity(intent);
+    public void tellJoke() {
 
         // Show the loading indicator before running the AsyncTask
-         indicator.setVisibility(ProgressBar.VISIBLE);
+        indicator.setVisibility(ProgressBar.VISIBLE);
 
-//        EndpointsAsyncTask myTask = new EndpointsAsyncTask(this);
-//        myTask.execute();
+        GetJokesFromFirebase getJokeFromFirebase = new GetJokesFromFirebase(this);
+        getJokeFromFirebase.getJoke();
     }
 
-//    @Override
-//    public void returnJokeData(String result)
-//    {
-//        jokeVar = result;
-//        if (interstitialAd.isLoaded())
-//        {
-//            interstitialAd.show();
-//        }
+    @Override
+    public void returnJokeData(String joke) {
+        jokeVar = joke;
+        if (interstitialAd.isLoaded())
+        {
+            interstitialAd.show();
+        }
 
-       //Debugging to see how the Loading Indicator is displayed
-       // SystemClock.sleep(2000);
+        //Debugging to see how the Loading Indicator is displayed
+        // SystemClock.sleep(2000);
 
         // Hide it after it finishes
-      // indicator.setVisibility(ProgressBar.INVISIBLE);
+        // indicator.setVisibility(ProgressBar.INVISIBLE);
 
     }
+}
 
