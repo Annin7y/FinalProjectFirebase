@@ -36,28 +36,31 @@ public class GetJokesFromFirebase
             {
                //String value = dataSnapshot.getValue(String.class);
                 // Read the jokes from Firebase
-                HashMap<String, String> map = (HashMap) dataSnapshot.getValue();
+               // HashMap<String, String> map = (HashMap) dataSnapshot.getValue();
 
 // Used to get a random joke from the HashMap
-                Random random = new Random();
+              //  Random random = new Random();
 
-                List<String> keys;
+              //  List<String> keys;
 
-                if (map != null)
-                {
+             //   if (map != null)
+             //   {
 
                     // Extract the HashMap keys in a List
-                    keys = new ArrayList<>(map.keySet());
+                   // keys = new ArrayList<>(map.keySet());
 
                     // Get a random key from the List
-                    String randomKey = keys.get(random.nextInt(keys.size()));
+                   // String randomKey = keys.get(random.nextInt(keys.size()));
 
                     // Finally, we get a joke from the HashMap based on the random key
-                    String value = map.get(randomKey);
+                  //  String value = map.get(randomKey);
 
 
-                    listener.returnJokeData(value);
-                }
+                  //  listener.returnJokeData(value);
+               // }
+                convertHashMap(dataSnapshot);
+
+
             }
 
             @Override
@@ -69,5 +72,32 @@ public class GetJokesFromFirebase
         });
 
     }
+
+  public void  convertHashMap(DataSnapshot dataSnapshot) {
+      HashMap<String, String> map = (HashMap) dataSnapshot.getValue();
+
+// Used to get a random joke from the HashMap
+      Random random = new Random();
+
+      List<String> keys;
+
+      if (map != null)
+      {
+
+          // Extract the HashMap keys in a List
+          keys = new ArrayList<>(map.keySet());
+
+          // Get a random key from the List
+          String randomKey = keys.get(random.nextInt(keys.size()));
+
+          // Finally, we get a joke from the HashMap based on the random key
+          String value = map.get(randomKey);
+
+
+          listener.returnJokeData(value);
+
+
+      }
+  }
 
 }
