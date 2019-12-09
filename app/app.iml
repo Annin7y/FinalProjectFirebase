@@ -114,6 +114,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/aidl" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/unitTest/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/paid/espressoTest" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/paid/com.udacity.gradle.builditbiggerfirebase.paid.tests" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/shaders" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/res" type="java-test-resource" />

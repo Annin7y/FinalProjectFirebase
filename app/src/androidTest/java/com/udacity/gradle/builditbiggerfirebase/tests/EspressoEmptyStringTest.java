@@ -44,16 +44,16 @@ public class EspressoEmptyStringTest
 //        onView(withId(R.id.joke_android)).check(matches(not(withText(""))));
 //    }
 
-    //https://stackoverflow.com/questions/32906881/checking-if-a-button-is-clickable-in-espresso-test-android-studio
-    @Rule
-    public ActivityTestRule<MainActivity> mActivityTestRule =
-            new ActivityTestRule<>(MainActivity.class);
-
-
-    @Test
-    public void buttonIsEnabled()
-    {
-        onView(withId(R.id.joke_button)).check(matches(isClickable()));
-    }
+//    //https://stackoverflow.com/questions/32906881/checking-if-a-button-is-clickable-in-espresso-test-android-studio
+//    @Rule
+//    public ActivityTestRule<MainActivity> mActivityTestRule =
+//            new ActivityTestRule<>(MainActivity.class);
+//
+//
+//    @Test
+//    public void buttonIsEnabled()
+//    {
+//        onView(withId(R.id.joke_button)).check(matches(isClickable()));
+//    }
 
 }
