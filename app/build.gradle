@@ -58,7 +58,7 @@ android {
     sourceSets {
         main
                 {
-                    java.srcDirs = ['src/main/java', 'src/unitTest/java', 'src/paid/espressoTest', 'src/paid/com.udacity.gradle.builditbiggerfirebase.paid.tests']
+                    java.srcDirs = ['src/main/java', 'src/unitTest/java', 'src/paid/espressoTest', 'src/paid/com.udacity.gradle.builditbiggerfirebase.paid.tests', 'src/androidTestPaid']
                 }
         free {
             manifest.srcFile 'src/free/AndroidManifest.xml'
