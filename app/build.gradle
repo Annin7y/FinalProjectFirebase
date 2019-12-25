@@ -55,21 +55,7 @@ android {
             resolutionStrategy.force "com.android.support:support-compat:28.0.0"
         }
     }
-    sourceSets {
-        main
-                {
-                    java.srcDirs = ['src/main/java', 'src/unitTest/java', 'src/paid/espressoTest', 'src/paid/com.udacity.gradle.builditbiggerfirebase.paid.tests', 'src/androidTestPaid']
-                }
-        free {
-            manifest.srcFile 'src/free/AndroidManifest.xml'
-            java.srcDirs = ['src/free/java']
-            res.srcDirs = ['src/free/res']
-        }
-        paid {
-            res.srcDirs = ['src/paid/res']
-            java.srcDirs = ['src/paid/java']
-        }
-    }
+
 
     dependencies {
         implementation fileTree(dir: 'libs', include: ['*.jar'])
