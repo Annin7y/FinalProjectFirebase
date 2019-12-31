@@ -3,6 +3,8 @@ package com.udacity.gradle.builditbiggerfirebasepaid.tests;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 
+import com.udacity.gradle.builditbiggerfirebase.FirebaseAsyncTaskInterface;
+import com.udacity.gradle.builditbiggerfirebase.GetJokesFromFirebase;
 import com.udacity.gradle.builditbiggerfirebase.MainActivity;
 import com.udacity.gradle.builditbiggerfirebase.R;
 
@@ -10,25 +12,50 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isClickable;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static junit.framework.TestCase.assertNotNull;
 
 @RunWith(AndroidJUnit4.class)
 public class EspressoTest
 {
 
-    @Rule
-    public ActivityTestRule<MainActivity> mActivityTestRule =
-            new ActivityTestRule<>(MainActivity.class);
-
-
+//    @Rule
+//    public ActivityTestRule<MainActivity> mActivityTestRule =
+//            new ActivityTestRule<>(MainActivity.class);
+//
+//
+//    @Test
+//    public void buttonIsEnabled()
+//    {
+//        onView(withId(R.id.joke_button)).check(matches(isClickable()));
+//    }
 
     @Test
-    public void buttonIsEnabled()
+    public void testFirebase() throws Throwable
     {
-        onView(withId(R.id.joke_button)).check(matches(isClickable()));
-    }
+        // create  a signal to let us know when our task is done.
+        final CountDownLatch signal = new CountDownLatch(1);
+
+       // final FirebaseAsyncTaskInterface jokesFromFirebase = new FirebaseAsyncTaskInterface()
+       GetJokesFromFirebase jokesFromFirebase= new GetJokesFromFirebase(new FirebaseAsyncTaskInterface()
+        {
+            @Override
+            public void returnJokeData(String result)
+            {
+                assertNotNull(result);
+                signal.countDown();
+            }
+        });
+
+        jokesFromFirebase.getJoke();
+
+        signal.await(30,TimeUnit.SECONDS);
+        }
 
 }
