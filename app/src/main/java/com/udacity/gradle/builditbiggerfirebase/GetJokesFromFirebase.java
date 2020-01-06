@@ -8,6 +8,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +31,10 @@ public class GetJokesFromFirebase
 
     public void getJoke()
     {
+        if (!isInternetAvailable())
+        {
+            listener.returnJokeData(null);
+        }
         usersRef.addValueEventListener(new ValueEventListener()
         {
             @Override
@@ -73,7 +79,8 @@ public class GetJokesFromFirebase
 
     }
 
-  public void  convertHashMap(DataSnapshot dataSnapshot) {
+  public void  convertHashMap(DataSnapshot dataSnapshot)
+  {
       HashMap<String, String> map = (HashMap) dataSnapshot.getValue();
 
 // Used to get a random joke from the HashMap
@@ -96,8 +103,18 @@ public class GetJokesFromFirebase
 
           listener.returnJokeData(value);
 
-
       }
   }
+
+    public boolean isInternetAvailable() {
+        try {
+            InetAddress address = InetAddress.getByName("www.google.com");
+            return !address.equals("");
+        } catch (UnknownHostException e) {
+            // Log error
+        }
+        return false;
+    }
+
 
 }

@@ -25,37 +25,38 @@ import static junit.framework.TestCase.assertNotNull;
 public class EspressoTest
 {
 
-//    @Rule
-//    public ActivityTestRule<MainActivity> mActivityTestRule =
-//            new ActivityTestRule<>(MainActivity.class);
-//
-//
-//    @Test
-//    public void buttonIsEnabled()
-//    {
-//        onView(withId(R.id.joke_button)).check(matches(isClickable()));
-//    }
+    @Rule
+    public ActivityTestRule<MainActivity> mActivityTestRule =
+            new ActivityTestRule<>(MainActivity.class);
+
 
     @Test
-    public void testFirebase() throws Throwable
+    public void buttonIsEnabled()
     {
-        // create  a signal to let us know when our task is done.
-        final CountDownLatch signal = new CountDownLatch(1);
+        onView(withId
+                (R.id.joke_button)).check(matches(isClickable()));
+    }
 
-       // final FirebaseAsyncTaskInterface jokesFromFirebase = new FirebaseAsyncTaskInterface()
-       GetJokesFromFirebase jokesFromFirebase= new GetJokesFromFirebase(new FirebaseAsyncTaskInterface()
-        {
-            @Override
-            public void returnJokeData(String result)
-            {
-                assertNotNull(result);
-                signal.countDown();
-            }
-        });
-
-        jokesFromFirebase.getJoke();
-
-        signal.await(30,TimeUnit.SECONDS);
-        }
+//    @Test
+//    public void testFirebase() throws Throwable
+//    {
+//        // create  a signal to let us know when our task is done.
+//        final CountDownLatch signal = new CountDownLatch(1);
+//
+//       // final FirebaseAsyncTaskInterface jokesFromFirebase = new FirebaseAsyncTaskInterface()
+//       GetJokesFromFirebase jokesFromFirebase= new GetJokesFromFirebase(new FirebaseAsyncTaskInterface()
+//        {
+//            @Override
+//            public void returnJokeData(String result)
+//            {
+//                assertNotNull(result);
+//                signal.countDown();
+//            }
+//        });
+//
+//        jokesFromFirebase.getJoke();
+//
+//        signal.await(30,TimeUnit.SECONDS);
+//        }
 
 }
