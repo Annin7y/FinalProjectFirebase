@@ -14,6 +14,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity
 {
+    CountingIdlingResource countingIdlingResource = new CountingIdlingResource("Idling Resource");
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -59,6 +60,12 @@ public class MainActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
+    public IdlingResource getIdlingResource()
+    {
+        return countingIdlingResource;
+    }
+
 
 }
 
