@@ -1,5 +1,8 @@
 package com.udacity.gradle.builditbiggerfirebasepaid.tests;
 
+import androidx.test.espresso.Espresso;
+import androidx.test.espresso.IdlingRegistry;
+import androidx.test.espresso.idling.CountingIdlingResource;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 
@@ -8,6 +11,8 @@ import com.udacity.gradle.builditbiggerfirebase.GetJokesFromFirebase;
 import com.udacity.gradle.builditbiggerfirebase.MainActivity;
 import com.udacity.gradle.builditbiggerfirebase.R;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,8 +27,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static junit.framework.TestCase.assertNotNull;
 
 @RunWith(AndroidJUnit4.class)
-public class EspressoTest
-{
+public class EspressoTest {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule =
@@ -31,13 +35,12 @@ public class EspressoTest
 
 
     @Test
-    public void buttonIsEnabled()
-    {
+    public void buttonIsEnabled() {
         onView(withId
                 (R.id.joke_button)).check(matches(isClickable()));
     }
 
-//    @Test
+    //    @Test
 //    public void testFirebase() throws Throwable
 //    {
 //        // create  a signal to let us know when our task is done.
@@ -59,4 +62,18 @@ public class EspressoTest
 //        signal.await(30,TimeUnit.SECONDS);
 //        }
 
+
+
+    @Before
+    public void registerIdlingResource() {
+        idlingResource = mActivityTestRule.getActivity().getIdlingResource();
+        IdlingRegistry.getInstance().register(idlingResource);
+    }
+
+    @After
+    public void unregisterIdlingResource() {
+        if (idlingResource != null) {
+            IdlingRegistry.getInstance().unregister(idlingResource);
+        }
+    }
 }

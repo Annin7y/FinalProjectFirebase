@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.test.espresso.idling.CountingIdlingResource;
+
 import com.udacity.gradle.builditbiggerfirebase.BaseMainActivityFragment;
 import com.udacity.gradle.builditbiggerfirebase.GetJokesFromFirebase;
 import com.udacity.gradle.builditbiggerfirebase.JokesActivity;
@@ -82,6 +84,10 @@ public class MainActivityFragment
         intent.putExtra(JokesActivity.JOKE_STRING, joke);
         startActivity(intent);
 
+    }
+    public CountingIdlingResource getIdlingResource()
+    {
+        return countingIdlingResource;
     }
 
 }

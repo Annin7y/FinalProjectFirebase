@@ -2,6 +2,8 @@ package com.udacity.gradle.builditbiggerfirebase;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.test.espresso.idling.CountingIdlingResource;
+
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -14,7 +16,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity
 {
-    CountingIdlingResource countingIdlingResource = new CountingIdlingResource("Idling Resource");
+     CountingIdlingResource countingIdlingResource = new CountingIdlingResource("Idling Resource");
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    public IdlingResource getIdlingResource()
+    public CountingIdlingResource getIdlingResource()
     {
         return countingIdlingResource;
     }
