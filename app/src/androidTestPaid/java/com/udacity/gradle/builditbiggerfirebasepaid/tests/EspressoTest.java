@@ -2,6 +2,7 @@ package com.udacity.gradle.builditbiggerfirebasepaid.tests;
 
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.IdlingRegistry;
+import androidx.test.espresso.IdlingResource;
 import androidx.test.espresso.idling.CountingIdlingResource;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
@@ -33,6 +34,7 @@ public class EspressoTest {
     public ActivityTestRule<MainActivity> mActivityTestRule =
             new ActivityTestRule<>(MainActivity.class);
 
+    private IdlingResource idlingResource;
 
     @Test
     public void buttonIsEnabled() {
@@ -40,7 +42,7 @@ public class EspressoTest {
                 (R.id.joke_button)).check(matches(isClickable()));
     }
 
-    //    @Test
+//        @Test
 //    public void testFirebase() throws Throwable
 //    {
 //        // create  a signal to let us know when our task is done.

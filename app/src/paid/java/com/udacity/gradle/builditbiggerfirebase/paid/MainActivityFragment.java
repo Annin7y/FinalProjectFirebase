@@ -15,6 +15,7 @@ import androidx.test.espresso.idling.CountingIdlingResource;
 import com.udacity.gradle.builditbiggerfirebase.BaseMainActivityFragment;
 import com.udacity.gradle.builditbiggerfirebase.GetJokesFromFirebase;
 import com.udacity.gradle.builditbiggerfirebase.JokesActivity;
+import com.udacity.gradle.builditbiggerfirebase.MainActivity;
 import com.udacity.gradle.builditbiggerfirebase.R;
 
 
@@ -68,6 +69,8 @@ public class MainActivityFragment
         // Show the loading indicator before running the AsyncTask
         indicator.setVisibility(ProgressBar.VISIBLE);
 
+        ((MainActivity) getActivity()).getIdlingResource().increment();
+
         GetJokesFromFirebase getJokeFromFirebase = new GetJokesFromFirebase(this);
         getJokeFromFirebase.getJoke();
 
@@ -76,6 +79,7 @@ public class MainActivityFragment
     @Override
     public void returnJokeData(String joke)
     {
+        ((MainActivity) getActivity()).getIdlingResource().decrement();
         // Hide it after it finishes
         indicator.setVisibility(ProgressBar.INVISIBLE);
 
@@ -85,10 +89,7 @@ public class MainActivityFragment
         startActivity(intent);
 
     }
-    public CountingIdlingResource getIdlingResource()
-    {
-        return countingIdlingResource;
-    }
+    
 
 }
 
