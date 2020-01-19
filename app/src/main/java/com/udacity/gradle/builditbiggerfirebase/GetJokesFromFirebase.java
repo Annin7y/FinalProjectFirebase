@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbiggerfirebase;
 
+import android.os.StrictMode;
 import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
@@ -106,15 +107,22 @@ public class GetJokesFromFirebase
       }
   }
 
-    public boolean isInternetAvailable() {
+    public boolean isInternetAvailable()
+    {
         try {
+            int SDK_INT = android.os.Build.VERSION.SDK_INT;
+            if (SDK_INT > 8)
+            {
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); ;
+                StrictMode.setThreadPolicy(policy);
+            }
             InetAddress address = InetAddress.getByName("www.google.com");
             return !address.equals("");
-        } catch (UnknownHostException e) {
+        } catch (UnknownHostException e)
+        {
             // Log error
         }
         return false;
     }
-
 
 }

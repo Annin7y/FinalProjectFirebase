@@ -89,7 +89,6 @@ public class MainActivityFragment
         startActivity(intent);
 
     }
-    
 
 }
 

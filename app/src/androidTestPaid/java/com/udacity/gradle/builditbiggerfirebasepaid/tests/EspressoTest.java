@@ -28,52 +28,55 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static junit.framework.TestCase.assertNotNull;
 
 @RunWith(AndroidJUnit4.class)
-public class EspressoTest {
-
+public class EspressoTest
+{
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule =
             new ActivityTestRule<>(MainActivity.class);
 
     private IdlingResource idlingResource;
 
-    @Test
-    public void buttonIsEnabled() {
-        onView(withId
-                (R.id.joke_button)).check(matches(isClickable()));
-    }
-
-//        @Test
-//    public void testFirebase() throws Throwable
+//    @Test
+//    public void buttonIsEnabled()
 //    {
-//        // create  a signal to let us know when our task is done.
-//        final CountDownLatch signal = new CountDownLatch(1);
-//
-//       // final FirebaseAsyncTaskInterface jokesFromFirebase = new FirebaseAsyncTaskInterface()
-//       GetJokesFromFirebase jokesFromFirebase= new GetJokesFromFirebase(new FirebaseAsyncTaskInterface()
-//        {
-//            @Override
-//            public void returnJokeData(String result)
-//            {
-//                assertNotNull(result);
-//                signal.countDown();
-//            }
-//        });
-//
-//        jokesFromFirebase.getJoke();
-//
-//        signal.await(30,TimeUnit.SECONDS);
-//        }
+//        onView(withId
+//                (R.id.joke_button)).check(matches(isClickable()));
+//    }
+
+        @Test
+    public void testFirebase() throws Throwable
+    {
+        // create  a signal to let us know when our task is done.
+        final CountDownLatch signal = new CountDownLatch(1);
+
+       // final FirebaseAsyncTaskInterface jokesFromFirebase = new FirebaseAsyncTaskInterface()
+       GetJokesFromFirebase jokesFromFirebase= new GetJokesFromFirebase(new FirebaseAsyncTaskInterface()
+        {
+            @Override
+            public void returnJokeData(String result)
+            {
+                assertNotNull(result);
+                signal.countDown();
+            }
+        });
+
+        jokesFromFirebase.getJoke();
+
+        signal.await(30,TimeUnit.SECONDS);
+        }
 
 
 
     @Before
-    public void registerIdlingResource() {
+    public void registerIdlingResource()
+    {
         idlingResource = mActivityTestRule.getActivity().getIdlingResource();
         IdlingRegistry.getInstance().register(idlingResource);
     }
 
     @After
-    public void unregisterIdlingResource() {
+    public void unregisterIdlingResource()
+    {
         if (idlingResource != null) {
             IdlingRegistry.getInstance().unregister(idlingResource);
         }
