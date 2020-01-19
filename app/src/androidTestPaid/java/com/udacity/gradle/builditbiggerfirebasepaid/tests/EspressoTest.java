@@ -66,7 +66,6 @@ public class EspressoTest
         }
 
 
-
     @Before
     public void registerIdlingResource()
     {

@@ -109,7 +109,8 @@ public class GetJokesFromFirebase
 
     public boolean isInternetAvailable()
     {
-        try {
+        try
+        {
             int SDK_INT = android.os.Build.VERSION.SDK_INT;
             if (SDK_INT > 8)
             {
@@ -118,7 +119,8 @@ public class GetJokesFromFirebase
             }
             InetAddress address = InetAddress.getByName("www.google.com");
             return !address.equals("");
-        } catch (UnknownHostException e)
+        }
+        catch (UnknownHostException e)
         {
             // Log error
         }
