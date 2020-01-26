@@ -36,12 +36,12 @@ public class EspressoTest
 
     private IdlingResource idlingResource;
 
-//    @Test
-//    public void buttonIsEnabled()
-//    {
-//        onView(withId
-//                (R.id.joke_button)).check(matches(isClickable()));
-//    }
+    @Test
+    public void buttonIsEnabled()
+    {
+        onView(withId
+                (R.id.joke_button)).check(matches(isClickable()));
+    }
 
         @Test
     public void testFirebase() throws Throwable

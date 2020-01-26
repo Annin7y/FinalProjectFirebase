@@ -28,6 +28,9 @@ import static org.hamcrest.core.IsNot.not;
 @RunWith(AndroidJUnit4.class)
 public class EspressoEmptyStringTest
 
+
+    //Tests moved to the test folder in the paid version
+    //Tests in this folder interfere with the Interstitial Ad
     //https://stackoverflow.com/questions/46598149/test-a-textview-value-is-not-empty-using-espresso-and-fail-if-a-textview-value-i
 {
 //
@@ -55,7 +58,4 @@ public class EspressoEmptyStringTest
     {
         onView(withId(R.id.joke_button)).check(matches(isClickable()));
     }
-
-
-
 }
